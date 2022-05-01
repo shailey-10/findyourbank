@@ -1,0 +1,110 @@
+.bank-table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-top: 40px;
+  min-height: 100px;
+}
+
+.bank-table thead tr {
+  background-color: #009879;
+  color: #fff;
+}
+
+.bank-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.bank-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.bank-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.bank-table tr {
+  font-size: 0.9em;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+.bank-table th {
+  text-align: left;
+}
+
+.bank-table td,
+th {
+  padding: 12px 15px;
+  min-width: 100px;
+}
+.loading {
+  top: 45%;
+  left: 50%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+}
+.loader {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #009863;
+  top: 50%;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #009879;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}

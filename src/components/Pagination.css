@@ -1,0 +1,17 @@
+.pagination-container{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    column-gap: 10px;
+}
+.pagination-number{
+    text-decoration: none;
+}
+button{
+    padding: 8px 10px 8px 10px;
+    text-align: center;
+    border: 1px solid #009879;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border-radius: 4px;
+}

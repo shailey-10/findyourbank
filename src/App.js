@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate
+} from "react-router-dom";
+import AllBanks from "./pages/AllBanks";
 import './App.css';
+import Bank from "./pages/Bank";
+import Favourites from "./pages/Favourites";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav  className="navBar">
+          <ul>
+            <li>
+              <Link to="/all-banks">All Banks</Link>
+            </li>
+            <li>
+              <Link to="/favorites">Favorites</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/all-banks" element = {<AllBanks />} />
+          <Route path="/favorites" element = {<Favourites />} />
+          <Route path="/bank-details/:ifsc" element = {<Bank />} />
+          <Route path="*" element={<Navigate to= '/all-banks'/>} />
+        </Routes>
+      </div>
+    </Router>
   );
+
 }
 
 export default App;
