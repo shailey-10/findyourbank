@@ -42,7 +42,7 @@ th {
   min-width: 100px;
 }
 .loading {
-  top: 45%;
+  top: 35%;
   left: 50%;
   display: flex;
   position: absolute;

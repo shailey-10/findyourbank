@@ -20,19 +20,20 @@ function AllBanks() {
     const url = locationLink;
     setIsLoading(true);
     let cache = JSON.parse(sessionStorage.getItem(location));
-    if (cache) {
+    console.log(cache);
+    if (cache || cache != undefined) {
       setData(cache);
     } else {
       fetch(url)
-        .then((response) => {
-          response.json();
+        .then((response) => response.json())
+        .then((data) => {
           setFailed(false);
-        })
-        .then((json) => {
-          setData(json);
-          sessionStorage.setItem(location, JSON.stringify(json));
+          setData(data);
+          console.log(data);
+          sessionStorage.setItem(location, JSON.stringify(data));
         })
         .catch((error) => {
+          console.log(error);
           setIsLoading(false);
           setFailed(true);
         });
@@ -40,12 +41,17 @@ function AllBanks() {
   }, [locationLink]);
 
   useEffect(() => {
+    console.log(data);
+
     if (data.length !== 0) {
       setIsLoading(false);
     }
+    console.log(data);
   }, [data]);
 
-  useEffect(() => {}, [category]);
+  useEffect(() => {
+    console.log(category);
+  }, [category]);
 
   const indexOfLastBank = currentPage * banksPerPage;
   const indexOfFirstBank = indexOfLastBank - banksPerPage;
@@ -67,6 +73,7 @@ function AllBanks() {
         val[category].toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
+    console.log(filteredBanks);
     displayData = filteredBanks.slice(indexOfFirstBank, indexOfLastBank);
     totalBanks = filteredBanks.length;
   }
@@ -84,6 +91,9 @@ function AllBanks() {
     }
     setCurrentPage(1);
   };
+
+  console.log(currentPage);
+
   const handleChangeLocation = (event) => {
     setLocationLink(
       `https://vast-shore-74260.herokuapp.com/banks?city=${event.target.value}`

@@ -60,11 +60,15 @@ function Table(props) {
       </thead>
       <tbody>
         {isLoading ? (
-          <div className='loading'>
-            <span className='loader'>
-              <span className='loader-inner'></span>
-            </span>
-          </div>
+          <tr>
+            <td>
+              <div className='loading'>
+                <span className='loader'>
+                  <span className='loader-inner'></span>
+                </span>
+              </div>
+            </td>
+          </tr>
         ) : failed ? (
           <tr>
             <td>
